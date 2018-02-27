@@ -1,5 +1,4 @@
 module.exports = function getZerosCount(number, base) {
-
     var count = 0,
         value = 0,
         x;
@@ -10,7 +9,7 @@ module.exports = function getZerosCount(number, base) {
     while(value<number){
         value += findNumberx;
         x = value;
-        while(x%findNumberx == 0 && x>0){
+        while(x%findNumberx == 0){
             count++;
             x /= findNumberx;
         }
@@ -39,9 +38,9 @@ function simpleFactor(value) {  //Функция разложения на пр�
 }
 
 function findNumber(factorArray = []) {  //Функция определения, количество каких чисел нужно искать
-    var findNumber=0;
-    for (var i=0; i<factorArray.length; i++){
-        if(i*factorArray[i]>findNumber*factorArray[findNumber]){
+    var findNumber=2;
+    for (var i=2; i<factorArray.length; i++){
+        if(i*factorArray[i]/findNumber > factorArray[findNumber]/findNumber){
             findNumber = i;
         }
     }
